@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funny Tamil Hacker 😎💻</title>
+<style>
+  body {
+    background: black;
+    color: #00ff00;
+    font-family: "Courier New", monospace;
+    padding: 20px;
+    font-size: 18px;
+    overflow: hidden;
+  }
+  #terminal { white-space: pre-line; }
+  .blink { animation: blink 0.7s infinite; }
+  @keyframes blink {
+    0%,100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  #finalMsg {
+    display: none;
+    color: #00ff00;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 50px;
+    text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+    transform: scale(0.2) rotateY(0deg);
+    animation: finalPop 2s ease-out forwards;
+  }
+
+  @keyframes finalPop {
+    0% { opacity: 0; transform: scale(0.1) rotateY(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotateY(180deg); }
+    100% { opacity: 1; transform: scale(1) rotateY(360deg); }
+  }
+  .matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    color: #00ff00;
+    font-size: 18px;
+    font-family: monospace;
+    mix-blend-mode: lighten;
+  }
+  @keyframes alertFlash {
+    0% { box-shadow: 0 0 20px red; }
+    50% { box-shadow: 0 0 40px red; }
+    100% { box-shadow: 0 0 20px red; }
+  }
+  .alert { animation: alertFlash 0.5s infinite; }
+  @keyframes shake {
+    0% { transform: translate(0px, 0px); }
+    25% { transform: translate(5px, -5px); }
+    50% { transform: translate(-5px, 5px); }
+    75% { transform: translate(5px, 5px); }
+    100% { transform: translate(0px, 0px); }
+  }
+  .shake { animation: shake 0.2s infinite; }
+  #skull {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(0deg);
+    font-size: 80px;
+    color: red;
+    text-shadow: 0 0 20px red;
+    display: none;
+    animation: skullSpin 3s linear infinite;
+  }
+  @keyframes skullSpin {
+    from { transform: translate(-50%, -50%) rotateY(0deg); }
+    to { transform: translate(-50%, -50%) rotateY(360deg); }
+  }
+</style>
+</head>
+<body>
+
+<canvas class="matrix" id="matrix"></canvas>
+<div id="skull">💀</div>
+<div id="terminal">REAL SYSTEM HACKING START... ⚠️</div>
+<div id="finalMsg"></div>
+
+<script>
+window.onload = function() {
+  const terminal = document.getElementById("terminal");
+  const finalMsg = document.getElementById("finalMsg");
+
+  const lines = [
+    "Initializing hack engine...",
+    "Loading secure modules...",
+    "Accessing encrypted vault...",
+    "Starting brute force...",
+    "Firewall layer 1 bypassed...",
+    "Firewall layer 2 bypassed...",
+    "Deep scanning system ports...",
+    "Opening SSH tunnel...",
+    "Tracking device signatures...",
+    "Injecting spoof packets...",
+    "Reverse engineering protocols...",
+    "Generating attack keys...",
+    "Uploading malicious test file...",
+    "(Just kidding, it's a joke file 😂)",
+    ...Array(70).fill("Running code sequence...")
+  ];
+
+  let index = 0;
+
+  function typeLine() {
+    if (index < lines.length) {
+      terminal.innerHTML += "\n" + lines[index];
+      index++;
+      setTimeout(typeLine, 700);
+    }
+  }
+
+  document.body.classList.add('alert');
+  document.body.classList.add('shake');
+  document.getElementById('skull').style.display = 'block';
+
+  const audio = new Audio('https://files.catbox.moe/0z7h9f.mp3');
+  audio.volume = 0.5;
+  audio.play();
+
+  typeLine();
+
+  setTimeout(() => {
+    terminal.style.display = "none";
+    document.body.classList.remove('shake');
+    document.body.classList.remove('alert');
+    document.getElementById('skull').style.display = 'none';
+
+    finalMsg.style.display = "block";
+    finalMsg.innerHTML =
+      "⚠️😂 என்ன hack ஆயிட்டுன்னு பயந்துட்டிங்களா? 😁😁😁<br><br>" +
+      "சும்மா fun தான் 😂😀<br>" +
+      "எல்லா லிங்கையும் இப்படி கிளிக் பண்ணிட்டா தான் hack ஆகும் போல 😎💚";
+  }, 30000);
+
+  const canvas = document.getElementById("matrix");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const letters = "01HACKFUNNYTAMIL".split("");
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
+
+  function drawMatrix() {
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#00ff00";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters[Math.floor(Math.random() * letters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+        drops[i] = 0;
+
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawMatrix, 40);
+};
+</script>
+</body>
+</html>
